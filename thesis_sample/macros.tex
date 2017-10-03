@@ -1,7 +1,19 @@
+\renewcommand{\vec}{\vectorsym}
+\newcommand{\tns}{\tensorsym}
+\newcommand{\mtx}{\mathbf}
+\newcommand{\mtb}{\textsc{Matlab}}
 \newcommand{\kwdmc}[2]{\gls{#1}\index{\ensuremath{#2}}} % Keyword math command.
 \newcommand{\kwdm}[1]{\gls{#1}\index{\ensuremath{#1}}}  % Keyword math.
-\newcommand{\kwd}[1]{\gls{#1}\index{#1}}				% Keyword.
-\newcommand{\incarabcounter}{							% Preserves arabic numbering before using the romanpages environment.
+\newcommand{\kwd}[1]{\gls{#1}\index{\gls{#1}}}			% Keyword.
+\newcommand{\kwdp}[1]{\glspl{#1}\index{\gls{#1}}}		% Keyword plural.
+\newcommand{\Kwd}[1]{\Gls{#1}\index{\gls{#1}}}			% Keyword upper case.
+\newcommand{\Kwdp}[1]{\Glspl{#1}\index{\gls{#1}}}		% Keyword plural upper case.
+\newcommand{\kwds}[1]{\glssymbol{#1}\index{\gls{#1}}}	% Keyword symbol.
+\newcommand{\nn}{\nonumber\\}							% No number skip line.
+
+% Saves arabic numbering before using the romanpages environment. 
+% Add at the end of included chapter so the correct page is recorded.
+\newcommand{\savearabiccounter}{
 	\setcounter{arabiccounter}{\value{page}}
 	%
 	\if@twocolumn
