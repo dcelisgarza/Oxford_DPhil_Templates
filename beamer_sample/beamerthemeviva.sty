@@ -1,0 +1,123 @@
+% Author: Daniel Celis Garza <daniel.celisgarza@materials.ox.ac.uk>
+% Date of creation: 2017/05/17
+% Last edit: 2017/05/17
+% Style document for presentations.
+\mode<presentation>
+
+%---------------------- Global Settings ---------------------------%
+% Colours
+% Oxford blue.
+\definecolor{oxfordblue}{RGB}{15,31,71}
+% Department of materials red.
+\definecolor{matsred}{RGB}{190,15,52}
+% Silver.
+\definecolor{silver}{RGB}{240,240,240}
+
+%--------------------------- Title Page ---------------------------%
+\setbeamertemplate{title page}{
+	\begin{picture}(0,0)
+	\put(-28.5,-164){%
+		% Background image.
+		\pgfuseimage{titlebackground}
+	}
+	\put(0,-75){%
+		% Title details.
+		\begin{minipage}[b][4.5cm][t]{0.7\textwidth}
+		% Silver font.
+		\color{silver}
+		% Presentation title.
+		\usebeamerfont{title}
+		{\inserttitle\\[0.9cm]}
+		% Details.
+		\usebeamerfont{subtitle}
+		% Author.
+		{\insertauthor\par}
+		% Institute.
+		{\insertinstitute\\[0.3cm]}
+		% Date.
+		{\insertdate}
+		\end{minipage}
+	}
+	\end{picture}
+}
+
+%-------------------------- Miscellaneous -------------------------%
+% Header and footer colour box.
+\setbeamercolor{section in head/foot}{fg=silver, bg=oxfordblue}
+
+%----------------------------- Header -----------------------------%
+\setbeamertemplate{headline}
+{%	
+	% Header navigation bar.
+	\begin{beamercolorbox}[ht=2.25ex,dp=3ex]{section in head/foot}
+		\insertnavigation{\paperwidth}
+	\end{beamercolorbox}
+	\vspace{-3ex}
+	% Logo and line.
+	\begin{picture}(0,0)
+	\put(314,-40){%
+		\pgfuseimage{oxfordlogo}
+	}
+	\put(20,-48){%
+		\rule{320pt}{0.4pt}
+	}
+	\end{picture}
+}
+
+%-------------------------- Frame Title ---------------------------%
+\setbeamertemplate{frametitle}
+{%
+	\begin{picture}(0,0)
+	\put(-8,-10){%
+		% Title.
+		\normalsize\color{oxfordblue}\insertframetitle
+	}
+	\put(-7,-20){%
+		% Subtitle.
+		\tiny\color{oxfordblue}\insertframesubtitle
+	}
+	\end{picture}
+}
+
+%----------------------------- Footer -----------------------------%
+% Numbered slides.
+\setbeamertemplate{footline}[page number]
+% Navigation symbols, keep argument blank to remove them.
+\setbeamertemplate{navigation symbols}{}
+% Line for footer.
+\setbeamertemplate{footline}
+{%
+	\begin{picture}(0,0)
+	\put(20,30){%
+		% Line that spans the slide.
+		\rule{320pt}{0.4pt}
+	}
+	% Department logo.
+	\begin{minipage}[b][1.1cm][c]{80pt}
+	\centering
+	\pgfuseimage{deptlogo}
+	\end{minipage}
+	% Short date and short title.
+	\begin{minipage}[b][1.1cm][c]{160pt}
+	\centering
+	\hfill
+	\color{oxfordblue}\insertshortdate
+	\hfill
+	\color{oxfordblue}\insertshorttitle
+	\hfill
+	\end{minipage}
+	% Page number.
+	\begin{minipage}[b][1.1cm][c]{80pt}
+	\flushright
+	\color{oxfordblue}\insertpagenumber
+	\end{minipage}
+	\end{picture}%
+}
+
+%-------------------------- Floats --------------------------------%
+% Numbered captions.
+\setbeamertemplate{caption}[numbered]
+% Enumeration.
+\setbeamertemplate{enumerate item}{(\arabic{enumi})}
+
+\mode<all>

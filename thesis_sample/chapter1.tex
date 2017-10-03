@@ -1,0 +1,40 @@
+\chapter[Short chapter name]{Long chapter name: Level 0}
+	\section[Short section name]{Long section name: Level 1}
+		\subsection[Short subsection name]{Long subsection name: Level 2}
+			\subsubsection[Short subsubsection name]{Long subsubsection name: Level 3}
+				Demonstration of user defined macro for keywords. \kwdmc{pi}{\pi}, \kwdm{e}, \kwd{tensor}, \cite{greenwade93}.
+				
+				\begin{table}[htbp!]
+					\centering
+					\caption[Test table short description.]{Booktabs test table long description.}
+					\label{t:1}
+					\begin{tabular}{ccccccc}
+						\toprule
+						$ ABCD $ & $ \mathrm{ABCD} $ & $ \mathbf{ABCD} $ & $ \bm{ABCD} $ & $ \mathcal{ABCD} $ & $ \mathfrak{ABCD} $ & $ \mathbb{ABCD} $\\
+						\cmidrule{2-3}\morecmidrules\cmidrule{5-6}
+						Normal & \verb|\mathrm| &\verb|\mathbf| & \verb|\bm| & \verb|\mathcal| & \verb|\mathfrak| & \verb|\mathbb| \\
+						\bottomrule
+					\end{tabular}
+				\end{table}
+				
+				\begin{figure}[htbp!]
+					\centering
+					\begin{subfigure}[c]{0.45\textwidth}
+						\centering
+						\includegraphics[height=2in]{../../../oxford_brands/positives/ox_brand_cmyk_pos.eps}
+						\caption{Oxford University logo.}
+						\label{f:sf:1}
+					\end{subfigure}
+					~
+					\begin{subfigure}[c]{0.45\textwidth}
+						\centering
+						\includegraphics[height=2in]{../../../oxford_brands/hmc.eps}
+						\caption{Harris Manchester logo.}
+						\label{f:sf:2}
+					\end{subfigure}
+					\caption[Test figure short description.]{Test figure long description.}
+					\label{f:1}
+				\end{figure}
+				
+				Testing cleveref's capabilities. Table \verb|\cref{t:1}|, \cref{t:1}. Figure \verb|\cref{f:1}|, \cref{f:1}. Subfigures \verb|\cref{f:sf:1,f:sf:2}|, \cref{f:sf:1,f:sf:2}.
+				\incarabcounter
