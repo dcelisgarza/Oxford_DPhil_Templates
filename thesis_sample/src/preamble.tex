@@ -1,15 +1,13 @@
 % Author: Daniel Celis Garza <daniel.celisgarza@materials.ox.ac.uk>
-% Date of creation: 2017/03/09
-% Last edit: 2017/03/09
 
 % Preamble with all the basic packages a thesis would need. Modify as needed.
 
-\documentclass[htwologo,twosup,12pt]{genthesis}
+\documentclass[twoside,htwologo,twosup,12pt]{genthesis}
 % By changing the document class this preamble can be used for other document types.
 % genthesis.cls contains the definition of the document class.
 % Geometry
-\usepackage[top=1in, bottom=1in, 
-outer=1in, inner=1in] % inner = 1.5 for binding
+\usepackage[top=1in, bottom=1in,
+	outer=1in, inner=1.5in] % inner = 1.5 for binding
 {geometry}
 
 %----------------------- Fonts, symbols and colours ------------------------%
@@ -19,7 +17,7 @@ outer=1in, inner=1in] % inner = 1.5 for binding
 %\usepackage[latin1]{inputenc}			% Input encoding (easy accents) for pdfLaTeX
 \usepackage{amssymb, amsmath,
 	bm	   , isomath,
-	mathtools}					% Maths fonts and symbols.
+	mathtools, esint}					% Maths fonts and symbols.
 \usepackage{exscale}					% Removes the need to use {\displaystyle }.
 %\newfontfamily\ubuntumono{Ubuntu Mono} % Ubuntu font for fancy shell commands (font needs to be installed).
 \usepackage{xcolor}
@@ -29,22 +27,24 @@ outer=1in, inner=1in] % inner = 1.5 for binding
 
 %------------------------ Hyperlinks and references ------------------------%
 \usepackage[colorlinks     = true, % Hyperlinks.
-pdfstartview   = FitV,
-linkcolor      = oxfordblue,
-citecolor      = oxfordblue,
-urlcolor       = oxfordblue,
-hyperfootnotes = true,
-hypertexnames  = true,
-plainpages     = false % Correctly links index entries whenever \thispagestyle{empty} is used.
+	pdfstartview   = FitV,
+	linkcolor      = oxfordblue,
+	citecolor      = oxfordblue,
+	urlcolor       = oxfordblue,
+	hyperfootnotes = true,
+	hypertexnames  = true,
+	plainpages     = false % Correctly links index entries whenever \thispagestyle{empty} is used.
 ]{hyperref}
 \usepackage[comma  , square,       % Citing style.
-numbers, sort&compress
+	numbers, sort&compress
 ]{natbib}
 \usepackage{cleveref} 			   % Automatic referencing better than \autoref{}.
 
+%----------------------------- Macro utility -------------------------------%
+\usepackage{xparse}	 % Expanded macro capability.
+
 %--------------------------- Index and glossary ----------------------------%
 \usepackage{makeidx} % Index.
-\usepackage{xparse}	 % Expanded macro capability.
 \makeindex			 % Creates index.
 \usepackage[toc, acronyms
 ]{glossaries} % Glossary.
@@ -52,23 +52,23 @@ numbers, sort&compress
 % Dual glossary entry.
 % Define dual entry for glossary + acronym.
 % https://en.wikibooks.org/wiki/LaTeX/Glossary#Dual_entries_with_reference_to_a_glossary_entry_from_an_acronym
-% Syntax: \newdualentry[glossary options][acronym options]{label}{abbrv}{long}{description}
 \DeclareDocumentCommand{\newdualentry}{ O{} O{} m m m m } {
 	\newglossaryentry{gls-#3}{name={#5},text={#5\glsadd{#3}},
-		description={#6},#1
-	}
-	\makeglossaries
-	\newacronym[see={[Glossary:]{gls-#3}},#2]{#3}{#4}{#5\glsadd{gls-#3}}
+	description={#6},#1
+}
+\makeglossaries
+\newacronym[see={[Glossary:]{gls-#3}},#2]{#3}{#4}{#5\glsadd{gls-#3}}
 }
 
 %--------------------------------- Utility ---------------------------------%
-\usepackage{setspace}  % Text spacing commands.
-%\usepackage{paralist} % In-paragraph lists.
+\usepackage{setspace} % Text spacing commands.
+\usepackage{paralist} % In-paragraph lists.
 %\usepackage{pdfpages} % Include pdf pages.
 %\usepackage{lscape}   % Use landscape pages.
 %\allowdisplaybreaks   % Math environments continue onto the next page if they overflow.
-\usepackage{siunitx}   % International units.
-\usepackage{hologo}    % XeLaTeX and BibTex logos.
+\usepackage{siunitx}  % International units.
+\usepackage{hologo}   % XeLaTeX and BibTex logos.
+\usepackage{ragged2e} % Ragged text.
 
 %--------------------------------- Floats ----------------------------------%
 %\usepackage{float} 			% Extra options for floats.
@@ -87,7 +87,7 @@ numbers, sort&compress
 \usepackage{algpseudocode} % Package for algorithm typesetting (pseudo-code).
 
 %---------------------------- Image file paths -----------------------------%
-\graphicspath{{./images/}}
+\graphicspath{{../images/}}
 
 %------------------------------- Input files -------------------------------%
 \input{macros.tex}	 % Macros.

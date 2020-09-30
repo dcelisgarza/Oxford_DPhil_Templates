@@ -1,0 +1,59 @@
+%--------------------------------- Colours ---------------------------------%
+\definecolor{oxfordblue}{RGB}{15,31,71}
+\definecolor{silver}{RGB}{240,240,240}
+
+%---------------------------------- Fonts ----------------------------------%
+% Section fonts.
+\sectionfont{\fontsize{60}{72}\color{oxfordblue}\selectfont}
+% Caption fonts.
+\DeclareCaptionFont{large}{\fontsize{37}{44.4}\selectfont}
+\DeclareCaptionFont{oxfordblue}{\color{oxfordblue}}
+\captionsetup{
+	font 	  = large,
+	labelfont = {color=oxfordblue}
+}
+
+%------------------------ Header and Footer Images -------------------------%
+% Header image.
+\newcommand{\himage}[2]{
+	\begin{tikzpicture}[overlay, remember picture]
+		\node[anchor=north] at (current page.north) {\includegraphics[width=#1]{#2}};
+	\end{tikzpicture}
+}
+% Footer image.
+\newcommand{\fimage}[2]{
+	\begin{tikzpicture}[overlay, remember picture]
+		\node[anchor=south] at (current page.south) {\includegraphics[width=#1]{#2}};
+	\end{tikzpicture}	
+}
+
+%--------------------------------- Images ----------------------------------%
+% They are not environments because environments break with more than 2 arguments
+% and they aren't flexible enough to provide the scfloat structure that I want.
+% Centre float.
+\newcommand{\cfloat}[4]{%
+	\vspace{#1}
+	\begin{center}% Centre minipage.
+		\begin{minipage}{#2}
+			\centering% Centre minipage content.
+			#3
+		\end{minipage}
+	\end{center}
+	\vspace{#4}
+}
+% Side caption float.
+\newcommand{\scfloat}[7]{%
+	\vspace{#1}
+	\begin{center}% Center minipage.
+		\begin{minipage}{#2}% Left side.
+			\centering% Centre minipage content.
+			#3
+		\end{minipage}%
+		#4
+		\begin{minipage}{#5}% Right side.
+			\centering% Centre minipage content.
+			#6
+		\end{minipage}%
+	\end{center}
+	\vspace{#7}
+}

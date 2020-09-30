@@ -1,0 +1,70 @@
+\documentclass[a0, portrait, posterdraft]{a0poster}
+% Replace `final' with `posterdraft' to reduce output to A4 size for test printing.
+
+%---------------------------- Fonts and symbols ----------------------------%
+% If using pdfLaTeX comment fontspec and uncomment fontenc and inputenc. If using the superior XeLaTeX/XeTeX or LuaTeX do the opposite.
+\usepackage{fontspec}					% XeLaTeX & LuaTeX fonts.
+%\usepackage[T1]{fontenc}				% Font encoding for pdfLaTeX
+%\usepackage[latin1]{inputenc}			% Input encoding (easy accents) for pdfLaTeX
+\usepackage{mathtools,amsfonts,
+			amssymb,amsmath,bm} 		% Maths fonts and symbols.
+%\newfontfamily\ubuntumono{Ubuntu Mono} % Ubuntu font for fancy shell commands (font needs to be installed).
+\usepackage{lmodern}
+\usepackage{exscale}					% Removes the need to use {\displaystyle }.
+\usepackage[usenames, dvipsnames, 		% Colour
+			svgnames, table, 
+			x11names, hyperref
+			]{xcolor}
+
+%------------------------ Hyperlinks and references ------------------------%
+\usepackage[colorlinks     = true, % Hyperlinks.
+			pdfstartview   = FitV,
+			linkcolor      = blue,
+			citecolor      = blue,
+			urlcolor       = blue,
+			hyperfootnotes = true,
+			hypertexnames  = true,
+			plainpages     = false % Correctly links index entries whenever \thispagestyle{empty} is used.
+			]{hyperref}
+\usepackage[comma, square,         % Citing style.
+			numbers, sort&compress
+			]{natbib}
+
+%--------------------------------- Utility ---------------------------------%
+\usepackage[margin=1cm]{geometry} % Margin spacing.
+\usepackage{sectsty}   % Section font style.
+%\usepackage{setspace} % Text spacing commands.
+\usepackage{paralist}  % In-paragraph lists.
+%\usepackage{pdfpages} % Include pdf pages.
+%\usepackage{chngcntr} % Change counters.
+\usepackage{authblk}   % Multi author package.
+\usepackage{multicol}  % Multicolumn text.
+%\allowdisplaybreaks   % Math environments continue onto the next page if they overflow.
+\columnseprule=3pt	   % Separation between columns and vertical rules.
+\columnsep=50pt		   % Separation between columns.
+\pagenumbering{gobble} % Remove page numbering.
+
+%--------------------------------- Floats ----------------------------------%
+\usepackage{tikz}
+%\usepackage{graphicx}			% Graphics options.
+%\usepackage{sidecap}
+\usepackage[font=large]{caption}% Small captions for floats.
+%\usepackage{float} 			% Extra options for floats.
+%\usepackage[section]{placeins} % Force floats to stay in the sections they're called in.
+%\usepackage{booktabs} 			% Nicer tables.
+%\usepackage{wrapfig}			% Wrap figures tightly around text.
+%\usepackage{multirow} 			% Multirow and multicolumn tables. Avoid when possible.
+%\usepackage{subcaption} 		% Subfigures.
+%\usepackage{epstopdf} 			% pdfLaTeX does not support eps images so they need to be converted to pdf.
+
+%---------------------------- Scripts and code -----------------------------%
+% If you only need basic script support use verbatim. If you want more features use listings. If you can install pygments use minted.
+%\usepackage{verbatim} % Type commands without the hassle of the other two.
+%\usepackage{listings} % Spartan display of code and pseudo code.
+%\usepackage{minted}   % Elegantly display code and pseudo code. Requires a Python 2.7 or higher installation of pygments to be installed. Requires "-shell-escape" flag to the compilation command.
+
+%------------------------------- File paths --------------------------------%
+\graphicspath{{./images/}} % Every N "../" represents going up N-1 folders before going to the folder following the /
+
+%--------------------------- User-defined macros ---------------------------%
+\input{macros.tex}
