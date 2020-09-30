@@ -9,3 +9,7 @@ All source files are found in `/thesis_sample/src/`, image files in `/thesis_sam
 ## Poster
 
 All source files are found in `/poster_sample/src/` and image files in `/poster_sample/images`. It's not flashy, but it's simple, elegant and forces you to be concise. Change the background, header and footer to suit your needs.
+
+## Presentation
+
+All source files are found in `/presentation_sample/src/` and image files in `/presentation_sample/images/`. The file `beamerthemeviva.sty` contains the style theme for the presentation. It defines the header, footer, title screen and theme colours. It's commented to make it easy to understand and modify. Compiling throws a bunch of warnings but they can be safely ignored.

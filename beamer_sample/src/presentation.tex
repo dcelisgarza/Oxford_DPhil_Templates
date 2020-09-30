@@ -1,0 +1,95 @@
+\input{preamble.tex}
+
+%------------------------------ Logos -----------------------------%
+% pgfdeclareimage needs explicit graphics paths, so we defined \graphicsPath preamble.tex as the relative path to the images folder
+% Background image.
+\pgfdeclareimage[width=\paperwidth]{titlebackground}{\graphicsPath background.eps}
+% Oxford logo.
+\pgfdeclareimage[width=0.9cm]{oxfordlogo}{\graphicsPath ox_brand_cmyk_pos.eps}
+% Department logo.
+\pgfdeclareimage[width=30pt]{deptlogo}{\graphicsPath materials_logo2.pdf}
+% Subtitle font size.
+\setbeamerfont{subtitle}{size=\small}
+
+%--------------------------- Information --------------------------%
+\title[Presentation]
+	{%
+		Presentation example
+	} % short title for footer
+\author%
+	{%
+		\sc{Daniel Celis Garza}\\
+		\textit{Fusion CDT}\\
+		\textit{Supervisors: Edmund Tarleton \& Angus Wilkinson}\\
+	}
+\institute%
+	{%
+		\textit{Department of Materials}\\
+		\textit{University of Oxford}
+	}
+\date[DCG]% short date for footer
+	{%
+		\textit{Oxford}\\
+		October 2017
+	}
+
+%---------------------------- Content -----------------------------%
+\begin{document}
+\begin{frame}[plain]
+	\titlepage
+\end{frame}
+%
+\begin{frame}
+	\frametitle{Contents}
+	\framesubtitle{\inserttitle}
+	\tableofcontents
+\end{frame}
+%
+\section{Sample Section}
+\subsection{Sample Subsection 1}
+\begin{frame}
+	\frametitle{This is the first slide}
+	\framesubtitle{A bit more information about this}
+
+	Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+	consequat.
+
+	Here is
+	\the\paperwidth
+	\begin{itemize}
+		\item some text;
+		\item inline maths: $\mathcal{R}_C(D)=\oplus_{n\geqslant0}\mathcal{L}(nD)$;
+		\item and display maths:
+		      \[
+			      \operatorname{Tor}_i(\operatorname{colim}_\alpha M_\alpha, N)
+			      = \operatorname{colim}_\alpha\operatorname{Tor}_i(M_\alpha,N)
+		      \]
+	\end{itemize}
+
+\end{frame}
+
+\subsection{Born too early}
+\begin{frame}
+	\frametitle{To explore the universe}
+	\framesubtitle{Too late to explore the world}
+	But just in time to browse for dank memes. Citation example \cite{greenwade93}.
+\end{frame}
+\begin{frame}[allowframebreaks]
+	\frametitle{References}
+	\bibliographystyle{unsrtnat}
+	\bibliography{bib}
+\end{frame}
+
+\appendix
+\section{Appendix 1}
+\begin{frame}
+	\includegraphics[width=5cm]{background.eps}
+\end{frame}
+\section{Appendix 2}
+\subsection{Sub appendix 1}
+\begin{frame}
+	appendix 2
+\end{frame}
+\end{document}

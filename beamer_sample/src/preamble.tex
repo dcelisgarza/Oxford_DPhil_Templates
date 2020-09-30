@@ -18,8 +18,8 @@
 
 %-------------------------------- References -------------------------------%
 \usepackage[comma, square,         % Citing style.
-			numbers, sort&compress
-			]{natbib}
+	numbers, sort&compress
+]{natbib}
 \usepackage{cleveref} 			   % Automatic referencing better than \autoref{}.
 
 %--------------------------------- Utility ---------------------------------%
@@ -39,7 +39,8 @@
 %\usepackage{minted}   % Elegantly display code and pseudo code. Requires a Python 2.7 or higher installation of pygments to be installed. Requires "-shell-escape" flag to the compilation command.
 
 %------------------------------- File paths --------------------------------%
-\graphicspath{{./images/}} % Every N "../" represents going up N-1 folders before going to the folder following the /
+\newcommand{\graphicsPath}{../images/}
+\graphicspath{{\graphicsPath}} % Every N "../" represents going up N-1 folders before going to the folder following the /
 
 %--------------------------- User-defined macros ---------------------------%
 \input{macros.tex}
