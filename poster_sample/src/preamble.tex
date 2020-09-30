@@ -7,28 +7,28 @@
 %\usepackage[T1]{fontenc}				% Font encoding for pdfLaTeX
 %\usepackage[latin1]{inputenc}			% Input encoding (easy accents) for pdfLaTeX
 \usepackage{mathtools,amsfonts,
-			amssymb,amsmath,bm} 		% Maths fonts and symbols.
+	amssymb,amsmath,bm} 		% Maths fonts and symbols.
 %\newfontfamily\ubuntumono{Ubuntu Mono} % Ubuntu font for fancy shell commands (font needs to be installed).
 \usepackage{lmodern}
 \usepackage{exscale}					% Removes the need to use {\displaystyle }.
 \usepackage[usenames, dvipsnames, 		% Colour
-			svgnames, table, 
-			x11names, hyperref
-			]{xcolor}
+	svgnames, table,
+	x11names, hyperref
+]{xcolor}
 
 %------------------------ Hyperlinks and references ------------------------%
 \usepackage[colorlinks     = true, % Hyperlinks.
-			pdfstartview   = FitV,
-			linkcolor      = blue,
-			citecolor      = blue,
-			urlcolor       = blue,
-			hyperfootnotes = true,
-			hypertexnames  = true,
-			plainpages     = false % Correctly links index entries whenever \thispagestyle{empty} is used.
-			]{hyperref}
+	pdfstartview   = FitV,
+	linkcolor      = blue,
+	citecolor      = blue,
+	urlcolor       = blue,
+	hyperfootnotes = true,
+	hypertexnames  = true,
+	plainpages     = false % Correctly links index entries whenever \thispagestyle{empty} is used.
+]{hyperref}
 \usepackage[comma, square,         % Citing style.
-			numbers, sort&compress
-			]{natbib}
+	numbers, sort&compress
+]{natbib}
 
 %--------------------------------- Utility ---------------------------------%
 \usepackage[margin=1cm]{geometry} % Margin spacing.
@@ -64,7 +64,7 @@
 %\usepackage{minted}   % Elegantly display code and pseudo code. Requires a Python 2.7 or higher installation of pygments to be installed. Requires "-shell-escape" flag to the compilation command.
 
 %------------------------------- File paths --------------------------------%
-\graphicspath{{./images/}} % Every N "../" represents going up N-1 folders before going to the folder following the /
+\graphicspath{{../images/}} % Every N "../" represents going up N-1 folders before going to the folder following the /
 
 %--------------------------- User-defined macros ---------------------------%
 \input{macros.tex}

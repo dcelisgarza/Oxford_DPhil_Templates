@@ -7,20 +7,20 @@
 \begin{flushleft}
 	\begin{minipage}{0.9\paperwidth}
 		\centering
-		{\fontsize{72}{86.4}\color{white}\selectfont\textbf{\emph{GPU Implementation of the Analytical Integration of\\ Forces Induced by Dislocations on Surface Elements}}}\\[0.8cm]
-		{\fontsize{48}{57.6}\color{white}\selectfont\textbf{\emph{Daniel Celis Garza\textsuperscript{*1}, Edmund Tarleton\textsuperscript{1}, Angus Wilkinson\textsuperscript{1}}}}\\[0.6cm]
-		{\fontsize{48}{57.6}\color{white}\selectfont\textbf{\emph{\textsuperscript{1}Department of Materials, University of Oxford, Parks Rd, Oxford OX1 3PH}}}\\[0.6cm]
-		{\fontsize{48}{57.6}\color{white}\selectfont\textbf{\emph{\textsuperscript{*}E-mail: \texttt{daniel.celisgarza@materials.ox.ac.uk}}}}
+		{\fontsize{72}{86.4}\color{white}\selectfont\textbf{GPU Implementation of the Analytical Integration of\\ Forces Induced by Dislocations on Surface Elements}}\\[0.8cm]
+		{\fontsize{48}{57.6}\color{white}\selectfont\textbf{Daniel Celis Garza\textsuperscript{*1}, Edmund Tarleton\textsuperscript{1}, Angus Wilkinson\textsuperscript{1}}}\\[0.6cm]
+		{\fontsize{48}{57.6}\color{white}\selectfont\textbf{\textsuperscript{1}Department of Materials, University of Oxford, Parks Rd, Oxford OX1 3PH}}\\[0.6cm]
+		{\fontsize{48}{57.6}\color{white}\selectfont\textbf{\textsuperscript{*}E-mail: \texttt{daniel.celisgarza@materials.ox.ac.uk}}}
 	\end{minipage}
 \end{flushleft}
 \vspace{5cm}
 \begin{multicols}{2}
 	%
 	{\fontsize{37}{44.4}\selectfont
-	\section{Introduction}
-	%
+		\section{Introduction}
+		%
 		The assumption of an asymptotically infinite crystalline matrix, greatly limits the applicability and scalability of Discrete Dislocation Dynamics (DDD) simulations.
-		
+
 		In order for DDD simulations to be more widely used in scientific and engineering applications (fig. \ref{f:dislocation}), a way must be found to simulate finite volumes.
 		\scfloat{0cm}{.525\linewidth}%
 		{%
@@ -30,7 +30,7 @@
 			\captionof{figure}{Bent microcantilever test. The plastic deformation of materials is mediated by the nucleation and motion of dislocations. The red box contains slip steps due to dislocations exiting at the free surface. Image kindly provided by Bo-Shiuan Li.}
 			\label{f:dislocation}
 		}{0cm}
-				
+
 		This is often done by decomposing the problem into two steps as shown in eq. \ref{e:stress} and fig. \ref{f:fem_ddd}. Given the initial traction conditions $ \bm{T_{0}} $. The stress field produced by the dislocation ensemble, $ \sum_{\textrm{d}} \bm{\tilde{\sigma}}_{\textrm{d}} $, is used to calculate a corrective stress field, $ \bm{\hat{\sigma}} $, produced by the boundaries. The resultant stress is the sum of both stress fields,
 		\begin{align}
 			\bm{\sigma} = \bm{\hat{\sigma}} + \sum\limits_{\textrm{d}} \bm{\tilde{\sigma}}_{\textrm{d}}\,.\label{e:stress}
@@ -42,35 +42,38 @@
 			\label{f:fem_ddd}
 		}{1cm}
 		This means we must evaluate the forces upon a surface by the dislocation loop ensemble. Doing so numerically is problematic because error minimisation is very computationally expensive due to poor scaling.
-		
+
 		\citet{analytical_integration_of_the_forces_induced_by_dislocations_on_a_surface_element} have found an analytical solution to this problem, which is to be implemented on NVidia Graphics Cards using CUDA C and used as part of the DDLab code.
-	%
-	\section{Methodology}
-	%
+		%
+		\section{Methodology}
+		%
 		The solution consists on solving 44 triple integrals via recurrence relations and 6 seed functions. This solution has scaling $ O(1) $ as there are no quadrature points, and is exact in both the finite and asymptotically infinite domains. The expressions are outside the scope of this poster and can be found in \cite{analytical_integration_of_the_forces_induced_by_dislocations_on_a_surface_element}.
-		
+
 		In essence, the main idea behind the solution can be found in fig. \ref{f:force_calc}. Where the stress field for non-singular dislocations \cite{a_non-singular_continuum_theory_of_dislocations} is weighted by linear shape functions that linearly distribute the nodal load on the surface element.
 		\cfloat{1cm}{0.95\linewidth}%
 		{%
 			\includegraphics[width=\linewidth]{force_calc.pdf}
 			\captionof{figure}{Series of line integrals that were solved analytically for rectangular surface elements \cite{analytical_integration_of_the_forces_induced_by_dislocations_on_a_surface_element}.
-			\textit{1}) For any given point $ \bm{x} $ on the surface element and any given point $ \bm{x'}$ on the dislocation line segment, define distance $ R_{a} $.
-			\textit{2}) Integrate from $ x_{1} \to x_{2} $ along the line direction $ \bm{t} $.
-			\textit{3}) Integrate from $ r_{1} \to r_{2} $ along vector $ \bm{p} $.
-			\textit{4}) Integrate from $ s_{1} \to s_{2} $ along vector $ \bm{q} $.}
+				\textit{1}) For any given point $ \bm{x} $ on the surface element and any given point $ \bm{x'}$ on the dislocation line segment, define distance $ R_{a} $.
+				\textit{2}) Integrate from $ x_{1} \to x_{2} $ along the line direction $ \bm{t} $.
+				\textit{3}) Integrate from $ r_{1} \to r_{2} $ along vector $ \bm{p} $.
+				\textit{4}) Integrate from $ s_{1} \to s_{2} $ along vector $ \bm{q} $.}
 			\label{f:force_calc}
 		}{0cm}
-	%
-	\section{Objectives}
-	%
+		%
+		\section{Objectives}
+		%
 		The primary objective of this project is to create an efficient, GPU implementation of the analytical solution for the forces exerted on a rectangular surface element by a dislocation ensemble. The secondary objective is to implement similar analytical solutions for quadratic triangular surface elements.
-	%
-	\section{Acknowledgements}
-	%
+		%
+		\section{Acknowledgements}
+		%
 		We would like to thank Sylvain Queyreau for his invaluable input on the project. This work was supported by the Consejo Nacional de Ciencia y Tecnologia, Fondo Sectorial CONACYT-Secretaria de Energia-Sustentabilidad Energetica Cuarto Periodo [291129]. This work was supported by the Engineering and Physical Sciences Research Council [EP/L01663X/1].
-}
-\bibliographystyle{unsrtnat}
-\bibliography{bib}
-\fimage{0.98\paperwidth}{footer.pdf}
+	}
+	\bibliographystyle{unsrtnat}
+	\bibliography{bib}
+	%-----------------------------------------
+	%                 Footer
+	%-----------------------------------------
+	\fimage{0.98\paperwidth}{footer.pdf}
 \end{multicols}
 \end{document}
